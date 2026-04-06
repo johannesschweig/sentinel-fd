@@ -96,8 +96,7 @@ const swipeBgStyle = computed(() => {
 
 <template>
   <div ref="track" class="rounded-full flex justify-end" :style="swipeBgStyle">
-    <div ref="knob" class="cursor-grab bg-white p-5 rounded-full m-2 flex items-center justify-center" :style="style"
-      style="position: fixed">
+    <div ref="knob" class="cursor-grab bg-white p-5 rounded-full m-2 flex items-center justify-center touch-none fixed" :style="style">
       <AnimatedArmIcon class="w-9 h-9" :percent="store.swipeProgress" :reverse="props.reverse" />
     </div>
     <div class="flex w-1/2 justify-center items-center">
