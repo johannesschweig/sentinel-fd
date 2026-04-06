@@ -1,0 +1,573 @@
+{
+  "objects": [
+    {
+      "id": 1,
+      "name": "CBK Pariser Platz",
+      "areaIds": [
+        101,
+        102,
+        103,
+        104
+      ]
+    },
+    {
+      "id": 2,
+      "name": "CBK Alexanderplatz",
+      "areaIds": [
+        201,
+        202,
+        203,
+        204
+      ]
+    }
+  ],
+  "areas": [
+    {
+      "id": 101,
+      "name": "Geldautomaten",
+      "detectorIds": [
+        101001,
+        101002,
+        101003,
+        101004,
+        101005,
+        101006,
+        101007,
+        101008,
+        101009,
+        101010,
+        101011,
+        101012,
+        101013,
+        101014,
+        101015,
+        101016,
+        101017,
+        101018,
+        101019,
+        101020,
+        101021,
+        101022,
+        101023,
+        101024
+      ]
+    },
+    {
+      "id": 102,
+      "name": "Büros (Falle)",
+      "detectorIds": [
+        102001,
+        102002,
+        102003,
+        102004,
+        102005,
+        102006,
+        102007,
+        102008,
+        102009,
+        102010,
+        102011,
+        102012,
+        102013,
+        102014,
+        102015,
+        102016,
+        102017,
+        102018,
+        102019,
+        102020,
+        102021,
+        102022,
+        102023,
+        102024,
+        102025,
+        102026,
+        102027
+      ]
+    },
+    {
+      "id": 103,
+      "name": "Umschrank",
+      "detectorIds": [
+        103001,
+        103002,
+        103003,
+        103004,
+        103005,
+        103006,
+        103007,
+        103008,
+        103009,
+        103010,
+        103011,
+        103012
+      ]
+    },
+    {
+      "id": 104,
+      "name": "Tresor",
+      "detectorIds": [
+        104001,
+        104002,
+        104003,
+        104004
+      ]
+    },
+    {
+      "id": 201,
+      "name": "Geldautomaten",
+      "detectorIds": [
+        201001
+      ]
+    },
+    {
+      "id": 202,
+      "name": "Büros (Falle)",
+      "detectorIds": [
+        202001
+      ]
+    },
+    {
+      "id": 203,
+      "name": "Umschrank",
+      "detectorIds": [
+        203001
+      ]
+    },
+    {
+      "id": 204,
+      "name": "Tresor",
+      "detectorIds": [
+        204001
+      ]
+    }
+  ],
+  "detectors": [
+    {
+      "id": 101001,
+      "type": "motion-detector",
+      "location": "Hinter Tür",
+      "alarmType": "intrusion"
+    },
+    {
+      "id": 101002,
+      "type": "coupler",
+      "location": "Tür",
+      "alarmType": "sabotage"
+    },
+    {
+      "id": 101003,
+      "type": "bolt-contact",
+      "location": "Tür",
+      "alarmType": "bolt-contact"
+    },
+    {
+      "id": 101004,
+      "type": "magnetic-contact",
+      "location": "Tür",
+      "alarmType": "intrusion"
+    },
+    {
+      "id": 101005,
+      "type": "hold-up-alarm",
+      "location": "Wand rechts",
+      "alarmType": "robbery"
+    },
+    {
+      "id": 101006,
+      "type": "coupler",
+      "location": "GEA links",
+      "alarmType": "sabotage"
+    },
+    {
+      "id": 101007,
+      "type": "magnetic-contact",
+      "location": "GEA links",
+      "alarmType": "intrusion"
+    },
+    {
+      "id": 101008,
+      "type": "bolt-contact",
+      "location": "GEA links",
+      "alarmType": "bolt-contact"
+    },
+    {
+      "id": 101009,
+      "type": "hold-up-alarm-addon",
+      "location": "GEA links",
+      "alarmType": "robbery"
+    },
+    {
+      "id": 101010,
+      "type": "tamper-switch",
+      "location": "GEA links",
+      "alarmType": "sabotage"
+    },
+    {
+      "id": 101011,
+      "type": "structure-borne-sound-detector",
+      "location": "GEA links",
+      "alarmType": "intrusion"
+    },
+    {
+      "id": 101012,
+      "type": "structure-borne-sound-detector",
+      "location": "GEA links",
+      "alarmType": "intrusion"
+    },
+    {
+      "id": 101013,
+      "type": "coupler",
+      "location": "GEA rechts",
+      "alarmType": "sabotage"
+    },
+    {
+      "id": 101014,
+      "type": "magnetic-contact",
+      "location": "GEA rechts",
+      "alarmType": "intrusion"
+    },
+    {
+      "id": 101015,
+      "type": "bolt-contact",
+      "location": "GEA rechts",
+      "alarmType": "bolt-contact"
+    },
+    {
+      "id": 101016,
+      "type": "hold-up-alarm-addon",
+      "location": "GEA rechts",
+      "alarmType": "robbery"
+    },
+    {
+      "id": 101017,
+      "type": "tamper-switch",
+      "location": "GEA rechts",
+      "alarmType": "sabotage"
+    },
+    {
+      "id": 101018,
+      "type": "structure-borne-sound-detector",
+      "location": "GEA rechts",
+      "alarmType": "intrusion"
+    },
+    {
+      "id": 101019,
+      "type": "structure-borne-sound-detector",
+      "location": "GEA rechts",
+      "alarmType": "intrusion"
+    },
+    {
+      "id": 101020,
+      "type": "structure-borne-sound-detector",
+      "location": "Wand hinten",
+      "alarmType": "intrusion"
+    },
+    {
+      "id": 101021,
+      "type": "coupler",
+      "location": "Tresor",
+      "alarmType": "sabotage"
+    },
+    {
+      "id": 101022,
+      "type": "bolt-contact",
+      "location": "Tresor",
+      "alarmType": "intrusion"
+    },
+    {
+      "id": 101023,
+      "type": "magnetic-contact",
+      "location": "Tresor",
+      "alarmType": "intrusion"
+    },
+    {
+      "id": 101024,
+      "type": "structure-borne-sound-detector",
+      "location": "Tresor",
+      "alarmType": "intrusion"
+    },
+    {
+      "id": 102001,
+      "type": "motion-detector",
+      "location": "Beraterbüro 1",
+      "alarmType": "intrusion"
+    },
+    {
+      "id": 102002,
+      "type": "motion-detector",
+      "location": "Beraterbüro 2",
+      "alarmType": "intrusion"
+    },
+    {
+      "id": 102003,
+      "type": "motion-detector",
+      "location": "Schalterhalle",
+      "alarmType": "intrusion"
+    },
+    {
+      "id": 102004,
+      "type": "motion-detector",
+      "location": "Großraumbüro 1",
+      "alarmType": "intrusion"
+    },
+    {
+      "id": 102005,
+      "type": "coupler",
+      "location": "Hinterausgang",
+      "alarmType": "sabotage"
+    },
+    {
+      "id": 102006,
+      "type": "magnetic-contact",
+      "location": "Hinterausgang",
+      "alarmType": "intrusion"
+    },
+    {
+      "id": 102007,
+      "type": "bolt-contact",
+      "location": "Hinterausgang",
+      "alarmType": "bolt-contact"
+    },
+    {
+      "id": 102008,
+      "type": "coupler",
+      "location": "Fenster links",
+      "alarmType": "sabotage"
+    },
+    {
+      "id": 102009,
+      "type": "magnetic-contact",
+      "location": "Fenster links",
+      "alarmType": "intrusion"
+    },
+    {
+      "id": 102010,
+      "type": "coupler",
+      "location": "Fenster links",
+      "alarmType": "sabotage"
+    },
+    {
+      "id": 102011,
+      "type": "magnetic-contact",
+      "location": "Fenster rechts",
+      "alarmType": "intrusion"
+    },
+    {
+      "id": 102012,
+      "type": "motion-detector",
+      "location": "Großraumbüro 2",
+      "alarmType": "intrusion"
+    },
+    {
+      "id": 102013,
+      "type": "motion-detector",
+      "location": "Beraterbüro 3",
+      "alarmType": "intrusion"
+    },
+    {
+      "id": 102014,
+      "type": "coupler",
+      "location": "Beraterbüro 3",
+      "alarmType": "sabotage"
+    },
+    {
+      "id": 102015,
+      "type": "magnetic-contact",
+      "location": "Beraterbüro 3",
+      "alarmType": "intrusion"
+    },
+    {
+      "id": 102016,
+      "type": "motion-detector",
+      "location": "Großraumbüro 4",
+      "alarmType": "intrusion"
+    },
+    {
+      "id": 102017,
+      "type": "coupler",
+      "location": "Beraterbüro 4",
+      "alarmType": "sabotage"
+    },
+    {
+      "id": 102018,
+      "type": "magnetic-contact",
+      "location": "Beraterbüro 4",
+      "alarmType": "intrusion"
+    },
+    {
+      "id": 102019,
+      "type": "coupler",
+      "location": "Beraterbüro 4",
+      "alarmType": "sabotage"
+    },
+    {
+      "id": 102020,
+      "type": "bolt-contact",
+      "location": "Eingang",
+      "alarmType": "bolt-contact"
+    },
+    {
+      "id": 102021,
+      "type": "magnetic-contact",
+      "location": "Eingang",
+      "alarmType": "intrusion"
+    },
+    {
+      "id": 102022,
+      "type": "motion-detector",
+      "location": "Küche KG",
+      "alarmType": "intrusion"
+    },
+    {
+      "id": 102023,
+      "type": "motion-detector",
+      "location": "Büro KG",
+      "alarmType": "intrusion"
+    },
+    {
+      "id": 102024,
+      "type": "coupler",
+      "location": "Tür KG",
+      "alarmType": "sabotage"
+    },
+    {
+      "id": 102025,
+      "type": "magnetic-contact",
+      "location": "Tür KG",
+      "alarmType": "intrusion"
+    },
+    {
+      "id": 102026,
+      "type": "bolt-contact",
+      "location": "Tür KG",
+      "alarmType": "bolt-contact"
+    },
+    {
+      "id": 102027,
+      "type": "motion-detector",
+      "location": "Flur KG",
+      "alarmType": "intrusion"
+    },
+    {
+      "id": 103001,
+      "type": "lid-contact",
+      "location": "Zentrale",
+      "alarmType": "sabotage"
+    },
+    {
+      "id": 103002,
+      "type": "automatic-dialer-transmitter",
+      "location": "Zentrale",
+      "alarmType": "Technisch"
+    },
+    {
+      "id": 103003,
+      "type": "lid-contact",
+      "location": "Zentrale",
+      "alarmType": "sabotage"
+    },
+    {
+      "id": 103004,
+      "type": "coupler",
+      "location": "Umschrank",
+      "alarmType": "sabotage"
+    },
+    {
+      "id": 103005,
+      "type": "bolt-contact",
+      "location": "Umschrank",
+      "alarmType": "bolt-contact"
+    },
+    {
+      "id": 103006,
+      "type": "magnetic-contact",
+      "location": "Umschrank",
+      "alarmType": "intrusion"
+    },
+    {
+      "id": 103007,
+      "type": "area-surveillance-detector",
+      "location": "Umschrank",
+      "alarmType": "sabotage"
+    },
+    {
+      "id": 103008,
+      "type": "hold-up-alarm",
+      "location": "Schreibtisch links",
+      "alarmType": "robbery"
+    },
+    {
+      "id": 103009,
+      "type": "hold-up-alarm",
+      "location": "Schreibtisch rechts",
+      "alarmType": "robbery"
+    },
+    {
+      "id": 103010,
+      "type": "hold-up-alarm",
+      "location": "Küche KG",
+      "alarmType": "robbery"
+    },
+    {
+      "id": 103011,
+      "type": "hold-up-alarm",
+      "location": "Schalter",
+      "alarmType": "robbery"
+    },
+    {
+      "id": 103012,
+      "type": "hold-up-alarm",
+      "location": "Tresorraum",
+      "alarmType": "robbery"
+    },
+    {
+      "id": 104001,
+      "type": "coupler",
+      "location": "Tür",
+      "alarmType": "sabotage"
+    },
+    {
+      "id": 104002,
+      "type": "bolt-contact",
+      "location": "Tür",
+      "alarmType": "bolt-contact"
+    },
+    {
+      "id": 104003,
+      "type": "magnetic-contact",
+      "location": "Tür",
+      "alarmType": "intrusion"
+    },
+    {
+      "id": 104004,
+      "type": "motion-detector",
+      "location": "Hinter Tür",
+      "alarmType": "intrusion"
+    },
+    {
+      "id": 201001,
+      "type": "motion-detector",
+      "location": "Hinter Tür",
+      "alarmType": "intrusion"
+    },
+    {
+      "id": 202001,
+      "type": "motion-detector",
+      "location": "Hinter Tür",
+      "alarmType": "intrusion"
+    },
+    {
+      "id": 203001,
+      "type": "motion-detector",
+      "location": "Hinter Tür",
+      "alarmType": "intrusion"
+    },
+    {
+      "id": 204001,
+      "type": "motion-detector",
+      "location": "Hinter Tür",
+      "alarmType": "intrusion"
+    }
+  ]
+}
