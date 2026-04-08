@@ -18,6 +18,7 @@ const detector = computed(() => store.data.detectors.find(d => d.id === props.no
 const area = computed(() => {
   switch (props.notification.type) {
     case 'DETECTOR_TRIGGERED':
+    case 'DETECTOR_TAMPER':
       return store.getAreaNameFromDetector(props.notification.id)
     case 'ALARM':
       return store.data.areas.find(a => a.id === props.notification.id)?.name
@@ -31,6 +32,7 @@ const area = computed(() => {
 const Icon = computed(() => {
   switch (props.notification.type) {
     case 'DETECTOR_TRIGGERED':
+    case 'DETECTOR_TAMPER':
       return DetectorIcon
     case 'ALARM':
       return SirenIcon
@@ -45,6 +47,8 @@ const iconProps = computed(() => {
   switch (props.notification.type) {
     case 'DETECTOR_TRIGGERED':
       return { type: detector.value?.type || 'unknown', status: 'triggered' }
+    case 'DETECTOR_TAMPER':
+      return { type: detector.value?.type || 'unknown', status: 'tamper' }
     case 'ARMING':
       return { status: props.notification.status }
     default:
@@ -56,6 +60,8 @@ const title = computed(() => {
   switch (props.notification.type) {
     case 'DETECTOR_TRIGGERED':
       return 'Gerät ausgelöst'
+    case 'DETECTOR_TAMPER':
+      return 'Gerät manipuliert'
     case 'ALARM':
       return 'Alarm'
     case 'ARMING':
@@ -68,6 +74,7 @@ const title = computed(() => {
 const description = computed(() => {
   switch (props.notification.type) {
     case 'DETECTOR_TRIGGERED':
+    case 'DETECTOR_TAMPER':
       return `${detectorTypeLabel[detector.value?.type || 'unknown']} in ${area.value || ''} (${detector.value?.location || ''})`
     case 'ALARM':
       return area.value || ''

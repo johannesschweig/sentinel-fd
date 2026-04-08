@@ -1,7 +1,7 @@
 export type ArmState = 'unknown' | 'armed' | 'disarmed' | 'internal'
 export type Armability = 'armable' | 'not-armable'
 export type AlarmState = 'idle' | 'alarm'
-export type DetectorStatus = 'unknown' | 'idle' | 'deactivated' | 'triggered'
+export type DetectorStatus = 'unknown' | 'idle' | 'deactivated' | 'triggered' | 'tamper'
 export type ZoneIconStatus = 'unknown' | 'internal' | 'armed' | 'disarmed' | 'alarm' | 'not-armable' // states for displaying zone icons
 
 export interface Data {
@@ -38,7 +38,7 @@ export interface DetectorData {
 export interface Notification {
   id: number; // detectorId or areaId
   time: number;
-  type: 'DETECTOR_TRIGGERED' | 'ALARM' | 'ARMING'
+  type: 'DETECTOR_TRIGGERED' | 'DETECTOR_TAMPER' | 'ALARM' | 'ARMING'
   status?: ZoneIconStatus
 }
 

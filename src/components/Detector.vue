@@ -43,7 +43,7 @@ const routeTo = computed(() => ({
     <div>
       <div class="flex gap-4 mb-1">
         <span class="text-grau-15" :title="String(detector.id)"> {{ detectorTypeLabel[detector.type] }}</span>
-        <span class="text-grau-15 text-xs font-bold px-2 py-1 rounded-lg" :class="classStatusMap[detector.status || 'unknown']">
+        <span class="text-xs font-bold px-2 py-1 rounded-lg" :class="classStatusMap[detector.status || 'unknown']">
           {{ germanStatusMap[props.detector.status || 'unknown'] }}
         </span>
       </div>

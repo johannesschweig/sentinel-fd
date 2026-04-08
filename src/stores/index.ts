@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { reactive } from 'vue';
-import type { ArmState, DetectorStatus, Data, AreaData, DetectorData, Notification } from '@/utils/types';
+import type { ArmState, AlarmState, DetectorStatus, Data, AreaData, DetectorData, Notification } from '@/utils/types';
 import { io } from "socket.io-client";
 
 const URL = import.meta.env.VITE_API_URL;
@@ -60,11 +60,12 @@ export const useSystemStore = defineStore('system', {
         object!.alarmState = 'idle'
       }
     },
-    setAreaArmStatus(areaId: number, status: ArmState, timestamp?: number) {
+    setAreaArmStatus(areaId: number, armState: ArmState, alarmState: AlarmState, timestamp?: number) {
       const area = this.data.areas.find(a => a.id === areaId)
       if (!area) return
-      if (area.armState === status) return
-      area.armState = status
+      if (area.armState === armState) return
+      area.armState = armState
+      area.alarmState = alarmState.includes('alarm') ? 'alarm' : alarmState
       const obj = this.data.objects.find(obj => obj.areaIds.includes(areaId))
       this.updateObjectStatus(obj!.id)
       // add to notification log
@@ -72,7 +73,7 @@ export const useSystemStore = defineStore('system', {
         type: 'ARMING',
         id: areaId,
         time: timestamp || Date.now(),
-        status,
+        status: alarmState.includes('alarm') ? 'alarm' : armState,
       })
     },
     updateObjectArmability(objectId: number) {
@@ -112,27 +113,6 @@ export const useSystemStore = defineStore('system', {
         obj.alarmState = 'idle'
       }
     },
-    updateAreaAlarmStatus(areaId: number) {
-      const area = this.data.areas.find(a => a.id === areaId)
-      if (!area) return
-      const detectorIds = area.detectorIds
-      const detectorStatus = this.data.detectors.filter(d => detectorIds.includes(d.id)).map(d => d.status)
-      if (detectorStatus.includes('triggered') && area.armState === 'armed') {
-        area.alarmState = 'alarm'
-        // add to notification log
-        this.notifications.push({
-          type: 'ALARM',
-          id: area.id,
-          time: Date.now()
-        })
-      } else {
-        area.alarmState = 'idle'
-      }
-      const object = this.data.objects.find(obj => obj.areaIds.includes(area.id))
-      if (object && object.id) {
-        this.updateObjectAlarmStatus(object.id)
-      }
-    },
     setDetectorStatus(detectorId: number, status: DetectorStatus, timestamp?: number) {
       const detector = this.data.detectors.find(d => d.id === detectorId)
       if (!detector) return
@@ -140,11 +120,10 @@ export const useSystemStore = defineStore('system', {
       detector.status = status
       const area = this.data.areas.find(area => area.detectorIds.includes(detectorId))
       this.updateAreaArmability(area!.id)
-      this.updateAreaAlarmStatus(area!.id)
       // add to notification log
-      if (status === 'triggered') {
+      if (status === 'triggered' || status === 'tamper') {
         this.notifications.push({
-          type: 'DETECTOR_TRIGGERED',
+          type: status === 'triggered' ? 'DETECTOR_TRIGGERED' : 'DETECTOR_TAMPER',
           id: detectorId,
           time: timestamp || Date.now()
         })
@@ -217,6 +196,7 @@ socket.on("state_update", (content) => {
       systemStore.setAreaArmStatus(
         Number(id),
         data.arm_state,
+        data.alarm_state,
         timestamp
       )
     })

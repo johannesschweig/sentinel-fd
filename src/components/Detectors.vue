@@ -16,19 +16,19 @@ const detectors = computed(() => {
 })
 
 const activeClass = function (tag: string) {
-  switch(tag) {
+  switch (tag) {
     case 'Alle':
       return tag === selectedFilter.value
         ? 'text-white bg-grau-20 font-bold hover:bg-grau-30'
         : 'text-grau-15 bg-white hover:bg-grau-90 border border-grau-20'
-    case 'Alarm':
-      return tag === selectedFilter.value
-        ? 'text-white bg-rot-20 font-bold hover:bg-rot-30'
-        : 'text-rot-15 bg-white hover:bg-rot-90 border border-rot-20'
     case 'Ausgelöst':
       return tag === selectedFilter.value
         ? 'text-white bg-purpur-20 font-bold hover:bg-purpur-30'
         : 'text-purpur-10 bg-white hover:bg-purpur-90 border border-purpur-20'
+    case 'Sabotage':
+      return tag === selectedFilter.value
+        ? 'text-white bg-gelb-30 font-bold hover:bg-gelb-40'
+        : 'text-gelb-10 bg-white hover:bg-gelb-90 border border-gelb-30'
     case 'Ruhe':
       return tag === selectedFilter.value
         ? 'text-white bg-blau-20 font-bold hover:bg-blau-30'
@@ -45,6 +45,8 @@ const filteredDetectors = computed(() => {
     return detectors.value
   } else if (selectedFilter.value === 'Ausgelöst') {
     return detectors.value.filter(detector => detector.status === 'triggered')
+  } else if (selectedFilter.value === 'Sabotage') {
+    return detectors.value.filter(detector => detector.status === 'tamper')
   } else if (selectedFilter.value === 'Ruhe') {
     return detectors.value.filter(detector => detector.status === 'idle')
   } else if (selectedFilter.value === 'Abgeschaltet') {
@@ -57,16 +59,16 @@ const filteredDetectors = computed(() => {
 <template>
   <div class="m-6 overflow-y-scroll overflow-x-hidden">
     <!-- Filter -->
-    <div class="flex gap-2 flex-nowrap mb-4">
-      <button v-for="tag in ['Alle', 'Ausgelöst', 'Ruhe', 'Abgeschaltet']"
-        class="text-sm rounded-2xl px-4 py-2 whitespace-nowrap cursor-pointer"
-        :class="activeClass(tag)" @click="selectedFilter = tag">
+    <div class="flex gap-1 flex-nowrap mb-4">
+      <button v-for="tag in ['Alle', 'Ausgelöst', 'Sabotage', 'Ruhe']"
+        class="text-sm rounded-2xl px-4 py-2 whitespace-nowrap cursor-pointer" :class="activeClass(tag)"
+        @click="selectedFilter = tag">
         {{ tag }}
       </button>
     </div>
     <!-- Detectors -->
     <div v-if="filteredDetectors.length" class="flex flex-col gap-2">
-      <Detector v-for="detector in filteredDetectors" :key="detector.id" :detector="detector" />      
+      <Detector v-for="detector in filteredDetectors" :key="detector.id" :detector="detector" />
     </div>
     <div v-else class="text-grau-30 text-center mt-20">
       Keine {{ DEVICES }} gefunden.

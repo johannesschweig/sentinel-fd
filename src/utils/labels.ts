@@ -3,7 +3,8 @@ export const germanStatusMap: Record<string, string> = {
   'alarm': 'Alarm',
   'triggered': 'Ausgelöst',
   'idle': 'In Ruhe',
-  'deactivated': 'Abgeschaltet'
+  'deactivated': 'Abgeschaltet',
+  'tamper': 'Sabotage'
 }
 
 export const detectorTypeLabel: Record<string, string> = {

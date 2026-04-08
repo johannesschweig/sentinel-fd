@@ -27,6 +27,7 @@ function toggleInternalProgram() {
 function humanizeEvent(item: any) {
   if (!item) return ''
   if (item.type === 'DETECTOR_TRIGGERED') return 'Ausgelöst'
+  if (item.type === 'DETECTOR_TAMPER') return 'Sabotage'
   if (item.type === 'DETECTOR_TRIGGERED_IDLE') return 'Ruhe'
   if (item.type === 'DETECTOR_DEACTIVATED') return 'Abgeschaltet'
   return item.type
@@ -92,8 +93,9 @@ function formatTime(ts: number | undefined) {
         <div v-for="(item, idx) in history" :key="idx" class="px-5 py-3 hover:bg-grau-95 transition-colors">
           <div class="flex items-center justify-between">
             <div class="flex items-center gap-2">
-              <span :class="['w-2 h-2 rounded-full',
-                item.type === 'DETECTOR_TRIGGERED' ? 'bg-purpur-40' : 'bg-grau-40']">
+              <span
+                :class="['w-2 h-2 rounded-full',
+                  item.type === 'DETECTOR_TRIGGERED' ? 'bg-purpur-40' : item.type === 'DETECTOR_TAMPER' ? 'bg-gelb-40' : 'bg-grau-40']">
               </span>
               <span class="text-sm font-medium text-grau-10">{{ humanizeEvent(item) }}</span>
             </div>

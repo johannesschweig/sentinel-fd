@@ -13,7 +13,7 @@ const groupedNotifications = computed((): NotificationGroup[] => {
   const groups = new Map<string, NotificationGroup>();
 
   const notifications = store.notifications.filter(n => {
-    if (n.type === 'DETECTOR_TRIGGERED') { // detector
+    if (n.type === 'DETECTOR_TRIGGERED' || n.type === 'DETECTOR_TAMPER') { // detector
       return store.getObjectIdFromDetector(n.id) === objectId.value
     } else { // area
       return store.getObjectIdFromArea(n.id) === objectId.value
@@ -38,12 +38,12 @@ const groupedNotifications = computed((): NotificationGroup[] => {
     groups.get(label)!.notifications.push(notification);
   });
 
-  // newest last
+  // newest first
   return Array.from(groups.values())
-    .sort((a, b) => a.date.getTime() - b.date.getTime())
+    .sort((a, b) => b.date.getTime() - a.date.getTime())
     .map(group => ({
       ...group,
-      notifications: group.notifications.sort((a, b) => a.time - b.time)
+      notifications: group.notifications.sort((a, b) => b.time - a.time)
     }));
 });
 

@@ -39,6 +39,7 @@ export const classStatusMap: Record<DetectorStatus, string> = {
   'deactivated': 'text-grau-40 bg-grau-95',
   // 'alarm': 'text-rot-30 bg-rot-95',
   'triggered': 'text-purpur-30 bg-purpur-95',
+  'tamper': 'text-gelb-30 bg-gelb-95',
   'idle': 'text-blau-30 bg-blau-95'
 }
 
