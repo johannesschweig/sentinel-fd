@@ -7,6 +7,8 @@ const store = useSystemStore()
 
 onMounted(() => {
   store.getData()
+  // Ping backend to wake it up
+  fetch(`${import.meta.env.VITE_API_URL}/api/health`).catch(() => { });
 })
 </script>
 
